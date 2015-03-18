@@ -1,7 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 require "elo4m"
 
-
 def players(my_rating)
   my_rank, other_ratings = rand_rank_ratings(my_rating)
   other_ratings.map do |k, v|

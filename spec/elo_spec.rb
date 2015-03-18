@@ -1,5 +1,5 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
-require File.expand_path(File.dirname(__FILE__) + '../../lib/elo4m.rb')
+require "elo4m"
 
 describe "Elo" do
   after do
