@@ -1,6 +1,15 @@
 # Elo4m
 
-TODO: Write a gem description
+### Elo for Multi Player Games
+
+From [Wikipedia](http://en.wikipedia.org/wiki/Elo_rating_system):
+
+The Elo rating system is a method for calculating the relative skill levels of
+players in two-player games such as chess and Go. It is named after its creator
+Arpad Elo, a Hungarian-born American physics professor.
+
+But Elo was designed for two player games.
+This is for multi player games.
 
 ## Installation
 
@@ -20,7 +29,35 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+# :rating => player's rating before game.
+# :rank => game result. if you win first prize, this is 1.
+# :new_rating => new rating applied elo raitng.
+
+players = [
+  Elo4m::Player.new(:rating, :rank),
+  Elo4m::Player.new(:rating, :rank)
+]
+game = Elo4m::Game.new(players)
+game.run
+#=> [:new_rating, :new_rating]  
+```
+
+### example
+
+```ruby
+players = [
+  Elo4m::Player.new(1613, 4),
+  Elo4m::Player.new(1609, 2),
+  Elo4m::Player.new(1477, 4),
+  Elo4m::Player.new(1388, 6),
+  Elo4m::Player.new(1586, 5),
+  Elo4m::Player.new(1720, 1)
+]
+game = Elo4m::Game.new(players)
+game.run
+#=> [1601, 1646, 1499, 1350, 1533, 1762]  
+```
 
 ## Contributing
 
