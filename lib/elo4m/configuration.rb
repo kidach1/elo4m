@@ -1,4 +1,4 @@
-module Elo
+module Elo4m
   class Configuration
     attr_accessor :default_k_factor
     attr_accessor :default_rating
