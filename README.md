@@ -40,10 +40,10 @@ players = [
 ]
 game = Elo4m::Game.new(players)
 game.run
-#=> [:new_rating, :new_rating]  
+  #=> [:new_rating, :new_rating]  
 ```
 
-### example
+## Example
 
 ```ruby
 players = [
@@ -56,12 +56,12 @@ players = [
 ]
 game = Elo4m::Game.new(players)
 game.run
-#=> [1601, 1646, 1499, 1350, 1533, 1762]  
+  #=> [1601, 1646, 1499, 1350, 1533, 1762]  
 ```
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/elo4m/fork )
+1. Fork it ( https://github.com/kidach1/elo4m/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
