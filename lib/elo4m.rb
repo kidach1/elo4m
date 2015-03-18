@@ -1,9 +1,9 @@
 require "elo4m/version"
-require "elo/helper"
-require "elo/configuration"
-require "elo/game"
-require "elo/player"
-require "elo/rating"
+require "elo4m/helper"
+require "elo4m/configuration"
+require "elo4m/game"
+require "elo4m/player"
+require "elo4m/rating"
 
 module Elo4m
   def self.config
