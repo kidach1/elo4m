@@ -6,10 +6,10 @@ require 'elo4m/version'
 Gem::Specification.new do |spec|
   spec.name          = "elo4m"
   spec.version       = Elo4m::VERSION
-  spec.authors       = ["Daiki Taniguchi"]
+  spec.authors       = ["kidach1"]
   spec.email         = ["daiki.taniguchi@aktsk.jp"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{For calculating the relative skill levels of players in multi-player games.}
+  spec.description   = %q{For calculating the relative skill levels of players in multi-player games.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
