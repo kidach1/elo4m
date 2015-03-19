@@ -9,7 +9,7 @@ module Elo4m
     @config ||= Configuration.new
   end
 
-  def self.configure(&block)
+  def self.configure
     yield config
   end
 end
