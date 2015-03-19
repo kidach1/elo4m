@@ -1,6 +1,5 @@
 module Elo4m
   class Player
-    include Helper
     attr_accessor :rating
     attr_accessor :ranking
 

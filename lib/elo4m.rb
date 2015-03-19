@@ -1,5 +1,4 @@
 require "elo4m/version"
-require "elo4m/helper"
 require "elo4m/configuration"
 require "elo4m/game"
 require "elo4m/player"
@@ -11,6 +10,6 @@ module Elo4m
   end
 
   def self.configure(&block)
-    yield(config)
+    yield config
   end
 end

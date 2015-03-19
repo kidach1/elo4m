@@ -1,10 +1,7 @@
 module Elo4m
   class Game
     # http://en.wikipedia.org/wiki/Elo_rating_system#Mathematical_details
-
-    include Helper
     attr_accessor :player_cnt
-    K_FACTOR = 32
 
     def initialize(players)
       self.player_cnt = players.length
@@ -19,8 +16,7 @@ module Elo4m
         Rating.new(
           result: score_sum(i),
           old_rating: instance_variable_get("@player#{i}").rating,
-          expected: expected_sum(i),
-          k_factor: K_FACTOR
+          expected: expected_sum(i)
         ).new_rating
       end
     end

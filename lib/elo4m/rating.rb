@@ -1,11 +1,14 @@
 module Elo4m
   class Rating
-    include Helper
-
     attr_reader :other_rating
     attr_reader :old_rating
-    attr_reader :k_factor
-    attr_reader  :expected
+    attr_reader :expected
+
+    def initialize(args = {})
+      args.each do |key, value|
+        instance_variable_set("@#{key}", value)
+      end
+    end
 
     def new_rating
       (old_rating.to_f + change).to_i
@@ -29,7 +32,7 @@ module Elo4m
 
     def change
       expected = self.expected.nil? ? expected_al : self.expected
-      k_factor.to_f * ( result.to_f - expected )
+      Elo4m.config.k_factor.to_f * ( result.to_f - expected )
     end
   end
 end
