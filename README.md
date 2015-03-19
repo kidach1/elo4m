@@ -59,6 +59,18 @@ game.run
   #=> [1601, 1646, 1499, 1350, 1533, 1762]  
 ```
 
+## K-factor
+
+Set your config if you want.
+
+`config/initializers/elo4m.rb.`
+
+```ruby
+Elo4m.configure do |c|
+  c.k_factor = <K-FACTOR>
+end
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/kidach1/elo4m/fork )
