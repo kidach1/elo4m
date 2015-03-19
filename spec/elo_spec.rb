@@ -29,10 +29,18 @@ http://en.wikipedia.org/wiki/Elo_rating_system#Mathematical_details
       Elo4m::Player.new(1586, 6),
       Elo4m::Player.new(1720, 2) ]
     end
+    subject { Elo4m::Game.new(players).run.first }
 
-    it do
-      game = Elo4m::Game.new(players)
-      expect(game.run.first).to eq(1601)
+    context 'K-factor is 32'do
+      it { expect(subject).to eq(1601) }
+    end
+    context 'K-factor is 16'do
+      before do
+        Elo4m.configure do |cfg|
+          cfg.k_factor = 16
+        end
+      end
+      it { expect(subject).to eq(1607) }
     end
   end
 
