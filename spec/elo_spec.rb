@@ -2,24 +2,17 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 require "elo4m"
 
 describe "Elo" do
-  after do
-    Elo4m.instance_eval { @config = nil }
-  end
+  # Elo rating system - Wikipedia, the free encyclopedia
+  # http://en.wikipedia.org/wiki/Elo_rating_system#Mathematical_details
+  #
+  # R_A^' = R_A + K(S_A - E_A).
+  # This update can be performed after each game or each tournament, or after any suitable rating period.
+  # An example may help clarify. Suppose Player A has a rating of 1613, and plays in a five-round tournament.
+  # He or she loses to a player rated 1609, draws with a player rated 1477, defeats a player rated 1388,
+  # defeats a player rated 1586, and loses to a player rated 1720. The player's actual score is (0 + 0.5 + 1 + 1 + 0) = 2.5.
+  # The expected score, calculated according to the formula above, was (0.506 + 0.686 + 0.785 + 0.539 + 0.351) = 2.867.
+  # Therefore the player's new rating is (1613 + 32×(2.5 − 2.867)) = 1601, assuming that a K-factor of 32 is used.
 
-=begin
-
-Elo rating system - Wikipedia, the free encyclopedia
-http://en.wikipedia.org/wiki/Elo_rating_system#Mathematical_details
-
-  R_A^' = R_A + K(S_A - E_A).
-  This update can be performed after each game or each tournament, or after any suitable rating period.
-  An example may help clarify. Suppose Player A has a rating of 1613, and plays in a five-round tournament.
-  He or she loses to a player rated 1609, draws with a player rated 1477, defeats a player rated 1388,
-  defeats a player rated 1586, and loses to a player rated 1720. The player's actual score is (0 + 0.5 + 1 + 1 + 0) = 2.5.
-  The expected score, calculated according to the formula above, was (0.506 + 0.686 + 0.785 + 0.539 + 0.351) = 2.867.
-  Therefore the player's new rating is (1613 + 32×(2.5 − 2.867)) = 1601, assuming that a K-factor of 32 is used.
-
-=end
   describe 'wikipedia-way' do
     let(:players) do [
       Elo4m::Player.new(1613, 4),
